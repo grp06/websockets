@@ -10,6 +10,7 @@ class App extends React.Component  {
   }
 
   componentDidMount() {
+
     fetch('/api')
       .then(response => {
         if (!response.ok) {
@@ -21,6 +22,8 @@ class App extends React.Component  {
         this.setState({
           message: json.message
         })
+        const socket = io();
+        console.log('socket = ', socket)
       }).catch(e => {
         console.log('e = ', e)
       })
